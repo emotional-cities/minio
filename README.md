@@ -25,6 +25,8 @@ The tiles are available here:
 ogrinfo MVT:http://localhost:9000/obs/0/0/0.pbf
 ```
 
+## Notes
+
 This will make sure to initialize the bucket on minio, and move the data there. If you need to start the composition again, but already have the bucket, please comment the `createBuckets` service.
 
 This will run the container on a network called `minioNet`. Be sure to attach to it, when running the pygeoapi container, or you won't be able to access the vector tiles.
