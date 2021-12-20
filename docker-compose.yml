@@ -41,26 +41,9 @@ services:
     networks:
       - minioNet
     volumes:
-      - ./data:/data
-      - minio:/root/.minio/
+      - ./data/tiles:/data
+      #- minio:/root/.minio/
     command: server --address 0.0.0.0:9000 /data
-
-#  createbuckets:
-#    image: minio/mc
-#    depends_on:
-#      - minio
-#    volumes:
-#      - ./data:/data
-#    entrypoint: >
-#      /bin/sh -c "
-#      /usr/bin/mc config host rm local;
-#      /usr/bin/mc config host add --quiet --api s3v4 local http://minio:9000 pygeoapi pygeoapi;
-#      /usr/bin/mc rb --force local/obs/;
-#      /usr/bin/mc mb local/obs/;
-#      mv /data/tiles/* /data/obs/;
-#      /usr/bin/mc policy set public local/obs;
-#      rm -rf /data/tiles;
-#      "
 
 volumes:
   minio: {}
