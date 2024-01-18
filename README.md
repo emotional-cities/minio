@@ -7,7 +7,7 @@ First, generate vector tiles from geojson:
 ```bash
 docker run -it --rm \
 -v ${PWD}/data:/data \
-tippecanoe:latest \
+emotionalcities/tippecanoe:latest \
 tippecanoe --output-to-directory=/data/tiles/ --force --maximum-zoom=11 --drop-densest-as-needed --extend-zooms-if-still-dropping --no-tile-compression /data/obs.geojson
 ```
 
